@@ -1,0 +1,6 @@
+# Libraries required 
+pandas
+numpy
+scikit-learn
+Flask
+matplotlib
