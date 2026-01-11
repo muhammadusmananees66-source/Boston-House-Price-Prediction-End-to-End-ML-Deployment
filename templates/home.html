@@ -1,3 +1,83 @@
-<h1>
-Hello World    
-</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Prediction</title>
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .login {
+            width: 420px;
+            padding: 40px;
+            background: white;
+            margin: 80px auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login">
+    <h1>Boston House Price Prediction</h1>
+
+    <!-- Form sends data to Flask predict() -->
+    <form action="{{ url_for('predict') }}" method="post">
+
+        <input type="text" name="CRIM" placeholder="CRIM" required>
+        <input type="text" name="ZN" placeholder="ZN" required>
+        <input type="text" name="INDUS" placeholder="INDUS" required>
+        <input type="text" name="CHAS" placeholder="CHAS" required>
+        <input type="text" name="NOX" placeholder="NOX" required>
+        <input type="text" name="RM" placeholder="RM" required>
+        <input type="text" name="AGE" placeholder="AGE" required>
+        <input type="text" name="DIS" placeholder="DIS" required>
+        <input type="text" name="RAD" placeholder="RAD" required>
+        <input type="text" name="TAX" placeholder="TAX" required>
+        <input type="text" name="PTRATIO" placeholder="PTRATIO" required>
+        <input type="text" name="B" placeholder="B" required>
+        <input type="text" name="LSTAT" placeholder="LSTAT" required>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    <!-- Prediction Output -->
+    <div class="result">
+        {{prediction_text}}
+    </div>
+
+</div>
+</body>
+</html>
